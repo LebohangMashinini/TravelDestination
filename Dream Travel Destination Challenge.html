@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dream Travel Destination</title>
+    <style>
+      body {
+        background: #ccd0cf;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        position: fixed;
+        width: 100%;
+        top: 0;  
+        left: 0;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      nav {
+        display: flex;
+        gap: 20px;
+      }
+
+      nav a {
+        color: #ccd0cf;
+        text-decoration: none;
+        font-size: 18px;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: #f0f0f0;
+      }
+
+      .container {
+        padding-top: 60px;
+      }
+
+      p {
+        text-align: center;
+        margin-left: 40px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #1e2025;
+        text-align: center;
+        font-size: 45px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      h3 {
+        font-size: 29px;
+      }
+
+      .opening-paragraph {
+        font-size: 25px;
+        text-align: center;
+        color: #253745;
+      }
+
+      .info-item {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 70px;
+      }
+
+      img {
+        width: 300px;
+        height: 400px;
+        object-fit: cover;
+        border: 2px solid #3c5665;
+        border-radius: 15px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .image-block {
+        color: #000000;
+        display: inline-block;
+        width: 250px;
+        vertical-align: top;
+      }
+
+      .image-heading {
+        text-align: center;
+        font-size: 20px;
+        color: #1e2025;
+      }
+
+      button {
+        background-color: #11212d;
+        color: #ccd0cf;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 80px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #333333;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(6, 4fr);
+        grid-template-rows: repeat(2, 4fr);
+        gap: 20px;
+        width: 100%;
+        max-width: 1200%;
+        padding: 70px;
+      }
+
+      .grid img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 2px solid #3c5665;
+        border-radius: 5px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .grid img:hover {
+        transform: scale(1.05);
+        opacity: 0.8;
+      }
+
+      body.light-mode {
+        background-color: #ffffff;
+        color: #000000;
+      }
+
+      button.light-mode {
+        background-color: #f0f0f0;
+        color: #000000;
+      }
+
+      .heading {
+        text-align: center;
+        max-width: 1000px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        padding-top: 60px;
+      }
+
+      .bolt-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+
+      .bolt-item img {
+        max-width: 50%;
+        height: auto;
+        margin-left: 60px;
+      }
+
+      .bolt-item img:hover {
+        transform: scale(1.1);
+        filter: brightness(1.3);
+      }
+      .bolt-item .text {
+        max-width: 50%;
+        padding: 0 20px;
+      }
+
+      .insights {
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+
+      .cultural-experiences h2 {
+        color: #1e2025;
+        text-align: center;
+        font-size: 45px;
+      }
+      .cultural-experiences h3 {
+        color: #1e2025;
+        text-align: center;
+        font-size: 30px;
+      }
+
+      .cultural-experiences {
+        background-color: #4a5c6a;
+        border: 1px solid #3c5665;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 20px 50px;
+      }
+
+      .experience {
+        background-color: #9ba8ab;
+        border: 1px solid #3c5665;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .cultural-experiences-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 4fr);
+        grid-template-rows: repeat(2, 5fr);
+        gap: 20px;
+      }
+
+      .experience p {
+        margin: 10px 0;
+      }
+
+      .gallery-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .gallery-container h2 {
+        font-size: 2rem;
+        align-content: center;
+        margin-bottom: 10px;
+      }
+
+      .grid-slides {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 20px;
+        width: 100%;
+        padding: 30px;
+        margin-left: -10px;
+      }
+
+      .contact-button {
+        background-color: #11212d;
+        color: #ccd0cf;
+        border: none;
+        padding: 10px 20px;
+        margin: 3px 0 0 300px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#introduction">Introduction</a>
+        <a href="#landmarks">Landmarks</a>
+        <a href="#cultural-experiences">Cultural Experiences</a>
+        <a href="#Insights">Insights</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#footer">Let's Connect</a>
+      </nav>
+    </header>
+    <button class="theme-button">Switch to Light Mode</button>
+    <div class="container">
+      <h1>Explore the Wonders of Iceland</h1>
+      <h2>Journey to the Land of Fire and Ice</h2>
+    </div>
+    <section id="introduction">
+      <h3>Why Iceland?</h3>
+      <p class="opening-paragraph">
+        Iceland has always been a place of intrigue for me—a country where the
+        raw power of nature is on full display. From the ethereal Northern
+        Lights to the geothermal hot springs, the dramatic landscapes of Iceland
+        are a dream come true for anyone who loves the outdoors. This isn't just
+        a destination; it's an adventure that promises to be as invigorating as
+        it is unforgettable.
+      </p>
+    </section>
+    <section id="landmarks">
+      <h3>Landmarks I can't Wait to See</h3>
+      <div class="info-item">
+        <span class="image-block">
+          <p class="image-heading">Landmannalaugar Iceland</p>
+          <img
+            src="https://i.pinimg.com/564x/cc/7a/8d/cc7a8db0348d1f5aa2015b6291ebaebc.jpg"
+            alt="northern lights"
+          />
+          <p>
+            The vivid rhyolite mountains and geothermal landscapes of
+            Landmannalaugar make it a must-visit for any nature lover. I can't
+            wait to hike through these colorful terrains and soak in the natural
+            hot springs that dot the area.
+          </p></span
+        >
+
+        <span class="image-block">
+          <p class="image-heading">Gullfoss waterfall</p>
+          <img
+            src="https://i.pinimg.com/564x/ae/f4/8e/aef48e41d4a9e21a62323ba94c436b90.jpg"
+            alt="Gullfoss waterfall"
+          />
+          <p>
+            Gullfoss, or 'Golden Falls,' is one of Iceland's most iconic
+            waterfalls. The sheer power and beauty of this cascade are something
+            I've longed to witness in person, standing at the edge of this
+            natural wonder.
+          </p>
+        </span>
+
+        <span class="image-block">
+          <p class="image-heading">Iceland's Sky Lagoon</p>
+          <img
+            src="https://i.pinimg.com/474x/fc/45/5c/fc455c0073831ebda9b7e227795c72bf.jpg"
+            alt="Iceland's Sky Lagoon"
+          />
+          <p>
+            The idea of relaxing in the Sky Lagoon, surrounded by breathtaking
+            views, is incredibly appealing. The geothermal waters are not just
+            soothing but also offer a unique connection to Iceland's volcanic
+            origins.
+          </p>
+        </span>
+
+        <span class="image-block">
+          <p class="image-heading">Thingvellir National Park</p>
+          <img
+            src="https://i.pinimg.com/474x/a3/08/22/a30822b6a5a0c15dae88439f9de85217.jpg"
+            alt="Thingvellir National Park"
+          />
+          <p>
+            Walking between two continents at Thingvellir National Park is an
+            experience that blends geology and history. The park's stunning
+            landscapes and its role in Iceland's history make it a must-visit on
+            my list.
+          </p>
+        </span>
+      </div>
+    </section>
+    <section>
+      <h4>Top Icelandic Gems You Can Not Miss</h4>
+      <div class="grid">
+        <img
+          src="https://i.pinimg.com/474x/8c/30/9e/8c309edf4e341f75c9d9553454325771.jpg"
+          alt="Reykjavik"
+        />
+        <p class="image-block">
+          In Reykjavik, I’m eager to wander through the vibrant Old Harbor,
+          where the colorful buildings reflect Iceland’s creative spirit. The
+          city’s streets are a canvas of striking murals and street art, each
+          telling a story of its own. I can’t wait to taste the local cuisine,
+          perhaps trying a dish of freshly caught fish or a bowl of traditional
+          lamb stew, warming my soul in the cool, crisp air.
+        </p>
+        <img
+          src="https://i.pinimg.com/474x/10/20/90/102090e4af5ffebf92a223b747f74896.jpg"
+          alt="Jökulsárlón Glacier Lagoon"
+        />
+        <p class="image-block">
+          Jökulsárlón Glacier Lagoon is like stepping into a world of icy
+          enchantment. As the massive icebergs float serenely across the deep
+          blue waters, I’ll watch as they catch the light in a magical display
+          of glowing blues and whites. I’m especially looking forward to
+          experiencing the lagoon at sunset, when the ice seems to catch fire,
+          reflecting the colors of the sky.
+        </p>
+        <img
+          src="https://i.pinimg.com/474x/e9/94/c1/e994c1da0c7b3acaf796e5d09086dd81.jpg"
+          alt="Vik and Reynisfjara Beach"
+        />
+        <p class="image-block">
+          Vik and Reynisfjara Beach are where the forces of nature have sculpted
+          a landscape of eerie beauty. The black sands stretch out like a dark
+          canvas, while the towering basalt columns rise from the earth like the
+          remains of some ancient, mythical creature. According to local legend,
+          these columns are trolls turned to stone by the dawn’s first light,
+          adding a touch of mystery to this already otherworldly place
+        </p>
+        <img
+          src="https://i.pinimg.com/474x/c7/0b/44/c70b448c94e6634bc86c6823f97b4979.jpg"
+          alt="Snæfellsnes Peninsula"
+        />
+        <p class="image-block">
+          The Snæfellsnes Peninsula is often called ‘Iceland in Miniature,’ and
+          it’s easy to see why. From the towering Snæfellsjökull glacier, which
+          inspired Jules Verne’s ‘Journey to the Center of the Earth,’ to the
+          dramatic cliffs and volcanic landscapes, this peninsula offers a
+          microcosm of Iceland’s most stunning natural features. I can’t wait to
+          explore its hidden corners and uncover the stories that make this
+          place so special.
+        </p>
+        <img
+          src="https://i.pinimg.com/474x/23/26/39/23263975451716b6cdc13c52f209a16a.jpg"
+          alt="Seljalandsfoss and Skógafoss Waterfalls"
+        />
+        <p class="image-block">
+          Two of Iceland's most picturesque waterfalls, Seljalandsfoss and
+          Skógafoss, offer breathtaking views. Walk behind Seljalandsfoss for a
+          unique perspective, and enjoy the mist and rainbows at Skógafoss.
+        </p>
+        <img
+          src="https://i.pinimg.com/474x/43/78/cb/4378cb1b91883e9cb3907c8ee48e674a.jpg"
+          alt="Askja Caldera"
+        />
+        <p>
+          Discover the Askja Caldera in the remote interior of Iceland. This
+          volcanic caldera is home to a stunning crater lake, Víti, which
+          features striking blue waters surrounded by rugged terrain. It is a
+          dramatic and less-visited site for those seeking adventure.
+        </p>
+      </div>
+    </section>
+
+    <section id="cultural-experiences">
+      <h2>Authentic Icelandic Experiences</h2>
+      <div class="cultural-experiences-grid">
+        <div class="experience">
+          <h3>Icelandic Sagas</h3>
+          <p>
+            The ancient sagas are an integral part of Iceland's culture, and I'm
+            eager to explore the stories that have shaped this nation. Visiting
+            saga museums will be like stepping back in time to the age of the
+            Vikings.
+          </p>
+          <a href="https://adventures.is/blog/icelandic-sagas/" target="_blank">
+            <button class="experience-button">Learn More</button>
+          </a>
+        </div>
+        <div class="experience">
+          <h3>Reykjavik Art Scene</h3>
+          <p>
+            Reykjavik's vibrant art scene is something I'm looking forward to
+            diving into. From galleries to street art, the city pulses with
+            creativity and expression. It's the perfect place to soak in
+            contemporary Icelandic culture.
+          </p>
+          <a
+            href="https://visitreykjavik.is/city-areas/hafnarfjordur/cultural-scene"
+            target="_blank"
+          >
+            <button class="experience-button">Learn More</button>
+          </a>
+        </div>
+        <div class="experience">
+          <h3>Geothermal Pools</h3>
+          <p>
+            Iceland's geothermal pools, like the famous Blue Lagoon, offer more
+            than just relaxation—they're a connection to the earth's inner
+            workings. I can't wait to experience the soothing warmth while
+            surrounded by surreal landscapes.
+          </p>
+          <a
+            href="https://www.visiticeland.com/article/geothermal-pools"
+            target="_blank"
+          >
+            <button class="experience-button">Learn More</button>
+          </a>
+        </div>
+        <div class="experience">
+          <h3>Traditional Icelandic Music</h3>
+          <p>
+            Icelandic music spans from traditional folk tunes to contemporary
+            genres. Traditional music often features ancient instruments and
+            folk songs, reflecting the country`s rich cultural heritage.
+          </p>
+          <a
+            href="https://www.iceland.org/culture/icelandic-music/"
+            target="_blank"
+          >
+            <button class="experience-button">Learn More</button>
+          </a>
+        </div>
+        <div class="experience">
+          <h3>Icelandic Horse Riding</h3>
+          <p>
+            Riding an Icelandic horse through the rugged countryside is a dream
+            come true. These horses are known for their unique gait and strong
+            build, making them perfect companions for exploring Iceland's
+            natural beauty.
+          </p>
+          <a
+            href="https://adventures.is/iceland/day-tours/horse-riding/"
+            target="_blank"
+          >
+            <button class="experience-button">Learn More</button>
+          </a>
+        </div>
+        <div class="experience">
+          <h3>Northern Lights Viewing</h3>
+          <p>
+            The Northern Lights are a phenomenon I've always wanted to see. The
+            chance to witness the Aurora Borealis dancing across the Icelandic
+            sky is one of the top reasons why I'm drawn to this incredible
+            country.
+          </p>
+          <a
+            href="https://www.nordicvisitor.com/europe-tours/scandinavia-northern-lights/?gad_source=1&gclid=Cj0KCQjwtsy1BhD7ARIsAHOi4xbGNR7yErz66gdp8dbfC3Xl9oyR2fBiJ2yyciWjib52FnQBVuBhjMgaAhj6EALw_wcB"
+            target="_blank"
+          >
+            <button class="experience-button">Learn More</button>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section id="Insights" class="lgbtq-friendly">
+      <h2 class="heading">Insights</h2>
+
+      <div class="bolt-item">
+        <img
+          src="https://i.pinimg.com/564x/44/ea/72/44ea720265283c9b9bfda72d2351459b.jpg"
+          alt="LGBTQ+ Friendly Iceland"
+        />
+        <div class="text">
+          <h3 class="insights">LGBTQ+ Friendly</h3>
+          <p>
+            Iceland is renowned for its inclusivity and acceptance, making it
+            one of the most LGBTQ+ friendly countries in the world. Knowing that
+            I can travel to a place where diversity is celebrated and everyone
+            is welcomed adds to the appeal of visiting Iceland.
+          </p>
+        </div>
+      </div>
+
+      <div class="bolt-item">
+        <div class="text">
+          <h3 class="insights">Icelandic Festivals</h3>
+          <p>
+            Iceland hosts a variety of vibrant festivals throughout the year,
+            including music, film, and cultural events. These festivals provide
+            an excellent opportunity to immerse yourself in Icelandic culture
+            and experience the local way of life.
+          </p>
+        </div>
+        <img
+          src="https://i.pinimg.com/474x/6b/45/1a/6b451af89fdb5d8666617731b8dad814.jpg"
+          alt="Icelandic Festivals"
+        />
+      </div>
+
+      <div class="bolt-item">
+        <img
+          src="https://i.pinimg.com/474x/02/47/5e/02475e03cd47860ab46713a14ee67826.jpg"
+          alt="Icelandic Cuisine"
+        />
+        <div class="text">
+          <h3 class="insights">Icelandic Cuisine</h3>
+          <p>
+            The cuisine of Iceland is deeply rooted in its Viking history and
+            natural environment. From fresh seafood to traditional dishes like
+            fermented shark, exploring Icelandic cuisine offers a unique taste
+            of the country's heritage.
+          </p>
+        </div>
+      </div>
+
+      <div class="bolt-item">
+        <div class="text">
+          <h3 class="insights">Icelandic Architecture</h3>
+          <p>
+            Icelandic architecture is a blend of modern design and traditional
+            influences. The use of natural materials and innovative building
+            techniques reflects the country’s commitment to sustainability and
+            harmony with the environment.
+          </p>
+        </div>
+        <img
+          src="https://i.pinimg.com/474x/96/89/b5/9689b5aad320ede08f71b9128367470f.jpg"
+          alt="Icelandic Architecture"
+        />
+      </div>
+
+      <div class="bolt-item">
+        <img
+          src="https://i.pinimg.com/474x/be/ad/42/bead423ffee051ae01fe23f171c12661.jpg"
+          alt="Puffin Colonies"
+        />
+        <div class="text">
+          <h3 class="insights">Puffin Colonies</h3>
+          <p>
+            Puffins are one of Iceland's most beloved birds, with large colonies
+            found along the coastlines. These charming creatures are a delight
+            to observe, especially during the breeding season when they return
+            to Iceland to nest.
+          </p>
+        </div>
+      </div>
+
+      <div class="bolt-item">
+        <div class="text">
+          <h3 class="insights">Nordic Mythology</h3>
+          <p>
+            Iceland is steeped in Nordic mythology, with tales of gods, giants,
+            and mythical creatures woven into the fabric of its culture.
+            Visitors can explore these ancient stories through museums,
+            literature, and even local folklore.
+          </p>
+        </div>
+        <img
+          src="https://i.pinimg.com/474x/03/6d/52/036d52e24cfaf2ee27329e7d588e5deb.jpg"
+          alt="Nordic Mythology"
+        />
+      </div>
+
+      <div class="bolt-item">
+        <img
+          src="https://i.pinimg.com/474x/6d/97/37/6d97373200b2b6bf0f06580594547836.jpg"
+          alt="Midnight Sun"
+        />
+        <div class="text">
+          <h3 class="insights">Midnight Sun</h3>
+          <p>
+            Iceland experiences the phenomenon of the Midnight Sun during summer
+            months, where the sun never fully sets. This unique natural event
+            offers endless daylight hours, perfect for exploring the stunning
+            landscapes and enjoying outdoor activities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="gallery-container">
+        <h2>Photo Highlights</h2>
+        <div class="grid-slides">
+          <div class="slide">
+            <img
+              src="https://i.pinimg.com/564x/e5/e1/a6/e5e1a65a96defb2ea0122a321d0dc759.jpg"
+              alt="Iceland country road"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://i.pinimg.com/474x/50/e5/14/50e5143c4bab0d3dd36b5470bd6bc8cb.jpg"
+              alt="isafjordur iceland"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://i.pinimg.com/474x/1b/0e/7f/1b0e7fca12e7a6f84a8b300caddffc59.jpg"
+              alt="Iceland Northern ligths"
+            />
+          </div>
+
+          <div class="slide">
+            <img
+              src="https://i.pinimg.com/474x/0b/54/86/0b5486b859984c4ffcbe0975f706fde7.jpg"
+              alt="Sword bridge in Iceland"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://i.pinimg.com/474x/d6/3a/b5/d63ab57dbda1ccc491005692676fb33f.jpg"
+              alt="Hallgrimskirkja at night"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://i.pinimg.com/474x/fd/b7/7e/fdb77eefe454a7bc9be0ab01a56f25a3.jpg"
+              alt="Hallgrimskirkja"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://i.pinimg.com/474x/6b/b2/08/6bb20858346d2a9272fd3243e67a9386.jpg"
+              alt="elephant rock"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://i.pinimg.com/564x/fb/ce/33/fbce338983443889f7e901e2c13ff1c6.jpg"
+              alt="glacier rivers"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="footer">
+      <p>
+        If you share my passion for Iceland or have tips and stories to share,
+        feel free to reach out!
+      </p>
+      <button class="contact-button">Get In Touch</button>
+      <p>© 2024 Lebohang Mashinini. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function switchToLightMode() {
+        let body = document.querySelector("body");
+        let button = document.querySelector(".theme-button");
+
+        if (body.classList.contains("light-mode")) {
+          body.classList.remove("light-mode");
+          button.classList.remove("light-mode");
+          button.textContent = "Switch to Light Mode";
+        } else {
+          body.classList.add("light-mode");
+          button.classList.add("light-mode");
+          button.textContent = "Switch to Dark Mode";
+        }
+      }
+
+      function askForEmail() {
+        let email = prompt(
+          "Want to stay updated on my Icelandic adventure? Drop your email below, and I'll make sure you're the first to know about the trip details, travel tips, and exclusive content!"
+        );
+
+        if (email) {
+          alert(
+            "Thank you for sharing your email! We'll keep you updated on all the exciting details about my Icelandic adventure."
+          );
+        } else {
+          alert(
+            "No email entered. If you change your mind, feel free to come back and share it!"
+          );
+        }
+      }
+
+      let themeButton = document.querySelector(".theme-button");
+      themeButton.addEventListener("click", switchToLightMode);
+
+      let contactButton = document.querySelector(".contact-button");
+      contactButton.addEventListener("click", askForEmail);
+    </script>
+  </body>
+</html>
